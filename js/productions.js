@@ -7,7 +7,8 @@ SymbolEnum = {
   REPETITION: ["{", "}"],
   GROUPING: ["(", ")"],
   TERMINAL_STRING: ['"', "'"],
-  EXCEPTION: "-"
+  EXCEPTION: "-",
+  SEPARATOR: " "
 }
 
 terminals = {}
@@ -65,7 +66,7 @@ function getValidSymbols(productions) {
   symbolObj.nonterminals = {};
 
   for (production in productions) {
-    var symbolsInProduction = productions[production].split(' ');
+    var symbolsInProduction = productions[production].split(SymbolEnum.SEPARATOR);
     for (symbol in symbolsInProduction) {
       symbol = symbolsInProduction[symbol];
       if (isTerminal(symbol)) {
@@ -94,8 +95,6 @@ function buildGrammar(grammarString) {
 
     // Grammar built. Allow interpretation.
     codeInput.disabled = false;
-    console.log(terminals);
-    console.log(nonterminals);
   } catch (err) {
     console.log(err);
     err = 'Error: ' + err;
