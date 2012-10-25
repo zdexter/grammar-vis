@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parser Generator and Grammar Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="tokenizer.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <textarea id="grammar" oninput="tokenize(this.value);" cols="30" rows="10"></textarea>
+      <p id="vis">Output will be here.</p>
+    </div> 
+  </body>
+</html>
