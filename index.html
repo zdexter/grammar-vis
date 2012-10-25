@@ -3,18 +3,22 @@
   <head>
     <title>Parser Generator and Grammar Visualizer</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/vis.css">
     <script type="text/javascript" src="js/productions.js"></script>
+    <script type="text/javascript" src="js/interpreter.js"></script>
   </head>
   <body>
     <div id="wrapper">
 
       <div class="left">
-        <label for="grammar">Please paste an EBNF grammar here.</label>
-        <textarea id="grammar" oninput="getProductions(this.value);" cols="30" rows="10"></textarea>
-        <p id="vis">Output will be here.</p>
+        <label class="shadow" for="grammar">Please paste an EBNF grammar here.</label><br>
+        <div class="textarea"><textarea id="grammar" oninput="buildGrammar(this.value);" cols="30" rows="10"></textarea></div>
+        <p id="grammar_errors" class="shadow"></p>
       </div>
       <div class="right">
-        <p id="productions"></p>
+        <label class="shadow" for="code">Start typing some code to visualize valid productions, terminals and nonterminals.</label><br>
+        <div class="textarea"><textarea id="code" oninput="interpretCode(this.value);" cols="30" rows="10"></textarea></div>
+        <p id="vis" class="shadow"></p>
       </div>
 
       <div class="clear">&nbsp;</div>
