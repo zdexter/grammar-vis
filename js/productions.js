@@ -46,14 +46,17 @@ function getValidSymbols(productions) {
 function buildGrammar(grammarString) {
   // Productions -> statements -> symbols -> nonterminals & terminals.
   var errorBox = document.getElementById("grammar_errors");
+  var codeInput = document.getElementById("code");
+
   errorBox.innerHTML = "";
 
   try {
     productions = getProductions(grammarString);
+    validSymbols = getValidSymbols(productions);
+    codeInput.disabled = false;
   } catch (err) {
     err = 'Error: ' + err;
     errorBox.innerHTML = err;
+    codeInput.disabled = true;
   }
-  console.log(productions);
-  validSymbols = getValidSymbols(productions);
 }
