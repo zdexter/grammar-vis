@@ -2,13 +2,23 @@
 <html>
   <head>
     <title>Parser Generator and Grammar Visualizer</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="tokenizer.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/productions.js"></script>
   </head>
   <body>
     <div id="wrapper">
-      <textarea id="grammar" oninput="tokenize(this.value);" cols="30" rows="10"></textarea>
-      <p id="vis">Output will be here.</p>
+
+      <div class="left">
+        <label for="grammar">Please paste an EBNF grammar here.</label>
+        <textarea id="grammar" oninput="getProductions(this.value);" cols="30" rows="10"></textarea>
+        <p id="vis">Output will be here.</p>
+      </div>
+      <div class="right">
+        <p id="productions"></p>
+      </div>
+
+      <div class="clear">&nbsp;</div>
+      
     </div> 
   </body>
 </html>

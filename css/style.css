@@ -1,0 +1,29 @@
+#wrapper{
+  width:100%;
+  min-height:500px;
+}
+
+#grammar {
+
+}
+
+#vis {
+  -webkit-box-shadow: 1px 1px 3px black;
+  -moz-box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px black;
+  width:25%;
+  border: 1px solid blue;
+}
+.left{
+  float:left;
+  border:1px solid black;
+  width:49%;
+}
+.right{
+  float:right;
+  width:49%;
+  border:1px solid black;
+}
+.clear{
+  clear:both;
+}

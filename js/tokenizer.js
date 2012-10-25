@@ -1,3 +1,4 @@
 function tokenize(input) {
-  alert(input);
+  /*
+    Return tokens */
 }
