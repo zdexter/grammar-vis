@@ -14,6 +14,10 @@ SymbolEnum = {
 terminals = {}
 nonterminals = {}
 
+function displayNonterminals() {
+  console.log(terminals);
+  console.log(nonterminals);
+}
 
 /* Return a map of the productions in grammarString.
   Productions are delimited by lines, and identified by key in
@@ -35,7 +39,6 @@ function getProductions(grammarString) {
 
     productions[key] = value;
   }
-  console.log(grammarString);
   return productions;
 }
 
@@ -90,8 +93,8 @@ function buildGrammar(grammarString) {
   try {
     var productions = getProductions(grammarString);
     var validSymbols = getValidSymbols(productions);
-    var terminals = validSymbols.terminals;
-    var nonterminals = validSymbols.nonterminals;
+    terminals = validSymbols.terminals;
+    nonterminals = validSymbols.nonterminals;
 
     // Grammar built. Allow interpretation.
     codeInput.disabled = false;
