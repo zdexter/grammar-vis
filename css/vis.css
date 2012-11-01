@@ -5,6 +5,10 @@ ul {
   padding: 0;
 }
 
+#nonterminals > p, #terminals > p {
+  margin-top: 0;
+}
+
 #currentSymbol {
 
 }
@@ -17,7 +21,7 @@ ul {
 
 }
 
-#vis:after {
+.clearfix:after {
   content: "";
   display: table;
   clear: both;

@@ -18,13 +18,19 @@
           <textarea id="grammar" oninput="buildGrammar(this.value);" cols="30" rows="10"></textarea>
         </div>
         <p id="grammar_errors" class="shadow"></p>
+        <div id="nonterminals" class="shadow clearfix left">
+          <p><strong>Nonterminals:</strong></p><br>
+        </div>
+        <div id="terminals" class="shadow clearfix right">
+          <p><strong>Terminals:</strong></p><br>
+        </div>
       </div>
       <div class="right">
         <label class="shadow" for="code">Start typing some code to visualize valid productions, terminals and nonterminals.</label><br>
         <div class="textarea">
           <textarea id="code" onfocus="displayAllSymbols()" oninput="interpretCode(this.value);" cols="30" rows="10" disabled></textarea>
         </div>
-        <p id="vis" class="shadow">
+        <p id="vis" class="shadow clearfix">
           <span id="vis-clear" class="clear">&nbsp;</span>
         </p>
       </div>

@@ -62,6 +62,23 @@ function isTerminal(symbol) {
   return false;
 }
 
+function isNonterminal(symbol) {
+  for (grammarSymbol in SymbolEnum) {
+    var arrayToCheck;
+    if (typeof(SymbolEnum[grammarSymbol]) == "string") {
+      arrayToCheck = [SymbolEnum[grammarSymbol]];
+    } else {
+      arrayToCheck = SymbolEnum[grammarSymbol];
+    }
+    for (i in arrayToCheck) {
+      if (arrayToCheck[i] == symbol) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 /* Return a hash of hashes of valid symbols in productions. */
 function getValidSymbols(productions) {
   var symbolObj = {};
@@ -74,12 +91,21 @@ function getValidSymbols(productions) {
       symbol = symbolsInProduction[symbol];
       if (isTerminal(symbol)) {
         addIfNotPresent(symbolObj.terminals, symbol);
-      } else {
+      } else if (isNonterminal(symbol)) {
         addIfNotPresent(symbolObj.nonterminals, symbol);
       }
     }
   }
   return symbolObj;
+}
+
+function buildListFromKeys(obj) {
+  var keys = Object.keys(obj);
+  var $myList = $('<ul>');
+  for (key in keys) {
+    $myList.append('<li>'+keys[key]+'</li>');
+  }
+  return $myList;
 }
 
 function buildGrammar(grammarString) {
@@ -93,8 +119,8 @@ function buildGrammar(grammarString) {
   try {
     var productions = getProductions(grammarString);
     var validSymbols = getValidSymbols(productions);
-    terminals = validSymbols.terminals;
-    nonterminals = validSymbols.nonterminals;
+    var terminals = validSymbols.terminals;
+    var nonterminals = validSymbols.nonterminals;
 
     // Grammar built. Allow interpretation.
     codeInput.disabled = false;
@@ -104,4 +130,8 @@ function buildGrammar(grammarString) {
     errorBox.innerHTML = err;
     codeInput.disabled = true;
   }
+
+  buildListFromKeys(nonterminals).insertAfter('#nonterminals > p');
+  buildListFromKeys(terminals).insertAfter('#terminals > p');
+
 }

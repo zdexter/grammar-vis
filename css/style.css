@@ -32,11 +32,11 @@ textarea{
 }
 .left{
   float:left;
-  width:49%;
+  width:48%;
 }
 .right{
   float:right;
-  width:49%;
+  width:48%;
 }
 .clear{
   clear:both;
