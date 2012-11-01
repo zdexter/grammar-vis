@@ -7,17 +7,13 @@ function displayAllSymbols() {
   render();
 }
 
-/* Display:
-  The current symbol, highlighted.
-  Nesting, if applicable.
-  All possible next symbols, if any. */
-function render() {
+/* Pop the top of displayStack
+    and add that item to the visualization. */
+function renderTop() {
   var $myList = $('<ul>');
-  for (symbolList in displayStack) {
-    for (symbolType in displayStack[symbolList]) {
-      var itemList = $('<li>'+displayStack[symbolList][symbolType]+'</li>');
-      $myList.append(itemList);
-    }
-  $myList.insertBefore('#vis-clear');
+  var itemToAdd = displayStack.pop();
+  for (symbolType in itemToAdd) {
+    $myList.append($('<li>'+itemToAdd[symbolType]+'</li>'));
   }
+  $myList.insertBefore('#vis-clear'); 
 }

@@ -42,13 +42,13 @@ function getProductions(grammarString) {
   return productions;
 }
 
-function is_defined(obj) {
+function isDefined(obj) {
   return typeof(obj) != "undefined";
 }
 
 /* Add obj to hash if obj isn't already a key in hash. */
 function addIfNotPresent(hash, obj) {
-  if (!is_defined(hash[obj])) {
+  if (!isDefined(hash[obj])) {
     hash[obj] = true;
   }
 }

@@ -54,4 +54,5 @@ function interpretCode(buffer) {
     recognizeSymbol(symbolArray[symbolArray.length-1]);
     buffer = "";
   }
+  renderTop();
 }
